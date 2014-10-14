@@ -1,0 +1,41 @@
+﻿<% provide(:title, 'Kushi') %>
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+
+
+	
+	<style>
+	#slider { width: 700px; height: 390px; }
+	</style>
+
+	<!-- AnythingSlider initialization -->
+	<script>
+		// DOM Ready
+		$(function(){
+			$('#slider').anythingSlider();
+		});
+	</script>
+
+</head>
+
+<body id="simple">
+
+	<!-- Simple AnythingSlider -->
+	<div class="hero-unit"><h3>Kushi</h3></div>
+
+	<ul id="slider">
+		<% @kushis.each do |kushi| %>
+		<li><%= image_tag kushi.kushi_image_url.to_s %></li>
+		<% end %>
+	</ul>
+
+	<!-- END AnythingSlider -->
+	<br/><br/>
+
+</body>
+
+</html>	
+	

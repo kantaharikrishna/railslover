@@ -1,0 +1,19 @@
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Image:</b>
+  <%= image_tag(@memberimage.image_url, :width => 600) if @memberimage.image.present? %>
+</p>
+
+<p>
+  <b>Member:</b>
+  <%= @memberimage.member_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_memberimage_path(@memberimage) %> <% if member_signed_in? %>
+<% if current_member.email == "kantaharikrishna@gmail.com" %>|
+<%= link_to 'Back', memberimages_path %>
+<% end %>
+<% end %>

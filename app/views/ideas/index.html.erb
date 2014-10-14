@@ -1,0 +1,42 @@
+<p id="warning"><%= flash[:warning] %></p>
+<p id="notice"><%= flash[:notice] %></p>
+<p id="alert"><%= flash[:alert] %></p>
+<% provide(:title, 'Ideas') %>
+
+<h1>Ideas</h1>
+
+<table>
+  <tr>
+    <th><h2>Issue</h2></th>
+   <!-- <th>Description</th> -->
+    <!-- <th>Picture</th> -->
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @ideas.each do |idea| %>
+  <tr>
+    <td><pre style="background-color:#77AEA9"><code><%= idea.name %></code></pre></td>
+    <!-- <td><%= idea.description %></td> -->
+    <!-- <td><%= image_tag(idea.picture_url, :width => 100) if idea.picture.present? %></td> -->
+    <td><blink><%= link_to 'Click here to view the solution', idea %></blink></td>
+     <% if member_signed_in? %>
+     <% if current_member.email == "kantaharikrishna@gmail.com" %>
+    <td><%= link_to 'Edit', edit_idea_path(idea) %></td>
+    <td><%= link_to 'Destroy', idea, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% end %>
+    <% end %>
+  </tr>
+<% end %>
+
+</table>
+
+<br />
+<% if member_signed_in? %>
+<% if current_member.email == "kantaharikrishna@gmail.com" %>
+<%= link_to 'New Idea', new_idea_path %>
+<% end %>
+<% end %>
+<%= will_paginate %>
+<%= render 'poll' %>

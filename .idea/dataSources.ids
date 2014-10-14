@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source source="LOCAL" name="Rails railsgirls1: production" product="" version="" jdbc-version="" driver-name="" driver-version="" uuid="7dcff07d-0a30-4801-ba8c-fdd6b5652872">
+    <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+    <jdbc-url>jdbc:mysql://127.0.0.1:10000/d06010292e8804792b59f99eca2f6a6d0</jdbc-url>
+    <user-name>uBJJmRwizKpI8</user-name>
+    <user-password>dfdadfdcdf99dfdfdf99dfe9dff3dfffdfecdfd9dfe2dfe4dfcb</user-password>
+    <libraries>
+      <library>
+        <url>file://$USER_HOME$/.RubyMine50/config/jdbc-drivers/mysql-connector-license.txt</url>
+      </library>
+      <library>
+        <url>file://$USER_HOME$/.RubyMine50/config/jdbc-drivers/mysql-connector-java-5.1.22-bin.jar</url>
+      </library>
+    </libraries>
+  </data-source>
+</component>

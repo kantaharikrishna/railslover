@@ -1,0 +1,22 @@
+﻿<head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
+</script>
+</head>
+
+
+<%= form_tag do %>
+  <input class="gender" type="radio" name="vote" value="ram">Ram
+<br>
+<input class="gender" type="radio" name="vote" value="ramesh">Ramesh
+<%= button_to 'Poll', :controller => "ideas", :action => "poll"  %>
+<% end %>
+<script type="text/javascript">
+$(document).ready(function () {
+$(".gender").change(function () {
+
+    var val = $('.gender:checked').val();
+    alert(val);
+});
+});
+
+</script>

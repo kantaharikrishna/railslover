@@ -1,0 +1,4 @@
+<% provide(:title, 'My profile') %>
+<div class="hero-unit" ><h1>Profile</h1></div>
+Name:<%= @profile.username.capitalize %><br/>
+Address:<%= @profile.contact.address if !@profile.contact.blank? %><%= "You are not specified your address" if @profile.contact.blank? %>

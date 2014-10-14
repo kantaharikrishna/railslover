@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Yahtzee</title>
+    <link rel="icon"
+          type="image/GIF"
+          href="res/Images/favicon.ico"/>
+    <script>
+        function getCookie(c_name)
+        {
+            var i,x,y,ARRcookies=document.cookie.split(";");
+            for (i=0;i<ARRcookies.length;i++)
+            {
+                x=ARRcookies[i].substr(0,ARRcookies[i].indexOf("="));
+                y=ARRcookies[i].substr(ARRcookies[i].indexOf("=")+1);
+                x=x.replace(/^\s+|\s+$/g,"");
+                if (x==c_name)
+                {
+                    return unescape(y);
+                }
+            }
+        }
+
+        function setCookie(c_name,value,exdays)
+        {
+            var exdate=new Date();
+            exdate.setDate(exdate.getDate() + exdays);
+            var c_value=escape(value) + ((exdays==null) ? "" : "; expires="+exdate.toUTCString());
+            document.cookie=c_name + "=" + c_value;
+        }
+
+        function checkCookie()
+        {
+            var username=getCookie("username");
+            if (username!=null && username!="")
+            {
+                alert("Welcome again " + username);
+            }
+            else
+            {
+                username=prompt("Please enter your name:","");
+                if (username!=null && username!="")
+                {
+                    setCookie("username",username,365);
+                }
+            }
+        }
+    </script>
+    <style type="text/css">
+        #Cocos2dGameContainer{margin: 0px auto;}
+        body{margin: 0px;background-image: url("res/Images/bg.jpg")}
+    </style>
+</head>
+<body onload="checkCookie()" style="text-align: center;">
+
+
+<div></div>
+<!--<div style="display:inline-block;width:auto; margin: 0 auto; background: black; position:relative; border:5px solid black; border-radius: 10px; box-shadow: 0 5px 50px #333">-->
+
+<canvas id="gameCanvas" width="960px" height="850px" style="background: #6b8e23;"></canvas>
+
+<!--</div>-->
+<script>var menuType = "Canvas";</script>
+<script src="cocos2d.js"></script>
+</body>
+</html>

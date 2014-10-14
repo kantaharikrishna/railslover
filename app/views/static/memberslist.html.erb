@@ -1,0 +1,16 @@
+<% provide(:title, 'Members list') %>
+<div class="hero-unit"><h3>Members List</h3></div>
+<ul>
+<% @members.each do |member| %>
+<li>
+  <div>
+    <strong><%= member.username.capitalize %></strong>
+    <br />
+    <strong><%= member.email %></strong><%= link_to 'Details', { controller: "static", action: "details", id: member }, remote: true, :method => :get %>
+    
+    <br/>
+  </div>
+  </li>
+<% end %>
+  </ul>
+<%= will_paginate @members %>

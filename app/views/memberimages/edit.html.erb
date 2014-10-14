@@ -1,0 +1,10 @@
+<% provide(:title, 'Edit my photo') %>
+<div class="hero-unit"><h1>Want to Edit your image?</h1></div>
+<div class="container">
+<%= render 'form' %>
+</div>
+<%= link_to 'Show', @memberimage %><% if member_signed_in? %>
+<% if current_member.email == "kantaharikrishna@gmail.com" %> |
+<%= link_to 'Back', memberimages_path %>
+<% end %>
+<% end %>

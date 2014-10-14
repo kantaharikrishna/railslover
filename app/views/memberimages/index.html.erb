@@ -1,0 +1,25 @@
+<h1>Listing memberimages</h1>
+
+<table>
+  <tr>
+    <th>Image</th>
+    <th>Member</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @memberimages.each do |memberimage| %>
+  <tr>
+    <td><%= memberimage.image %></td>
+    <td><%= memberimage.member_id %></td>
+    <td><%= link_to 'Show', memberimage %></td>
+    <td><%= link_to 'Edit', edit_memberimage_path(memberimage) %></td>
+    <td><%= link_to 'Destroy', memberimage, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Memberimage', new_memberimage_path %>

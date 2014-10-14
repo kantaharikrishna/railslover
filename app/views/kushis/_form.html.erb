@@ -1,0 +1,20 @@
+<%= form_for @kushi, :html => {:multipart => true} do |f| %>
+  <% if @kushi.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@kushi.errors.count, "error") %> prohibited this kushi from being saved:</h2>
+
+      <ul>
+      <% @kushi.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+  <p>
+    <%= f.file_field :kushi_image %>
+  </p>
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,53 @@
+<% provide(:title, 'Idea') %>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Issue:</b>
+  <pre> <code><%= @idea.name %></code></pre>
+</p>
+
+<p>
+  <b>Description:</b>
+ <pre> <code><%= @idea.description %></code></pre>
+</p>
+
+<p>
+  <!-- <b>Picture:</b> -->
+  <%= image_tag(@idea.picture_url, :width => 200) if @idea.picture.present? %>
+</p>
+<h3>Comments</h3>
+
+<% @idea.comments.each do |comment| %>
+<% unless  comment == @idea.comments.last %>
+  <div class="hero-unit-comments">
+  
+	  
+	  <% @id =Member.find_by_username("#{comment.user_name}")%>
+	  <% @id1 = @id.try(:id) %>
+	  <%=image_tag("user.png", :width => 13, :class => "img-rounded")  if !Memberimage.find_by_member_id(@id1).present?%>
+      <%=image_tag(Memberimage.find_by_member_id(@id1).image_url, :width => 50, :class => "img-rounded") if Memberimage.find_by_member_id(@id1).present? %>
+	  
+
+	  
+    <strong><%= "#{comment.user_name.capitalize}" %></strong>
+    <br />
+    <br />
+    <pre style="background-color:#BCC9C9"><code><p><%= comment.body %><p></code></pre>
+	<br />
+	<div align="right">
+	Commented <%= time_ago_in_words(comment.created_at) %> ago.
+	</div>
+  </div>
+  <% end %>
+<% end %>
+
+<%= render 'comments/form' %>
+<% if member_signed_in? %>
+<% if current_member.email == "kantaharikrishna@gmail.com" %>
+<%= link_to 'Edit', edit_idea_path(@idea) %> |
+<% end %>
+<% end %>
+
+<%= link_to 'Back', ideas_path %>
+
+

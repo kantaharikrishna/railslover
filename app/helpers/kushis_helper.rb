@@ -1,0 +1,2 @@
+module KushisHelper
+end

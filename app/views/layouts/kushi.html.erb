@@ -1,0 +1,288 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+
+
+<title><%= full_title(yield(:title)) %></title>
+	<script type="javascript/text">
+	var a = 20;
+	</script>
+  
+  <link href="<%= image_path("rails.png") %>" rel="shortcut icon" />
+  
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "merged/kushi" %>
+  
+  <%= csrf_meta_tags %>
+  <%= analytics_init if Rails.env.production? %>
+  <style>
+.menu_container {
+	position: fixed;
+ 	width: 450px;
+	min-height:100px;
+    height:auto !important;
+    height:100px; 
+	z-index:1200;
+	top:40px;
+	right:0px;
+}
+.menu_head {
+	background:brown;
+    color: white;
+    cursor: pointer;
+    font-family: arial;
+    font-size: 14px;
+	margin: 0 0 1px 0;
+    padding: 11px 11px;
+	font-weight: bold;
+	
+	
+}
+.menu_body {
+	background: linear-gradient(1deg,rgba(41,40,39,1) 0%,rgba(77,69,68,1) 100%);
+	
+  opacity:1;
+  filter:alpha(opacity=100); /* For IE8 and earlier */
+}
+.menu_body p{
+	padding: 5px;
+	margin: 0px;
+	
+  font-weight:bold;
+  color:#FFFFFF;
+}
+.plusminus{
+	float:right;
+}
+</style>
+<style type="text/css">
+
+
+@font-face {
+    font-family: 'BebasNeueRegular';
+    src: url('BebasNeue-webfont.eot');
+    src: url('BebasNeue-webfont.eot?#iefix') format('embedded-opentype'),
+         url('<%= asset_path('BebasNeue-webfont.woff') %>') format('woff'),
+         url('BebasNeue-webfont.ttf') format('truetype'),
+         url('BebasNeue-webfont.svg#BebasNeueRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+.clock-container {width: 200px; margin: 0 auto; overflow: hidden; background:#202020;
+	 font:bold 12px Arial, Helvetica, sans-serif;
+	 
+	 padding:0;
+	 
+	 color:#bbbbbb; top:43px; position:fixed; z-index:4000; right:28px}
+
+.clock {width:200px; margin:0 auto; padding:0px; border:1px solid #333; color:#fff;}
+
+#Date { font-family:'BebasNeueRegular', Arial, Helvetica, sans-serif; font-size:1.5ex; text-align:center; text-shadow:0 0 5px #00c6ff; }
+
+#clock-ul { width:200px; margin:0 auto; padding:0px; list-style:none; text-align:center; }
+#clock-ul .clock-li { display:inline; font-size:1em; text-align:center; font-family:'BebasNeueRegular', Arial, Helvetica, sans-serif; text-shadow:0 0 5px #00c6ff; }
+
+#point { position:relative; -moz-animation:mymove 1s ease infinite; -webkit-animation:mymove 1s ease infinite; padding-left:10px; padding-right:10px; }
+
+@-webkit-keyframes mymove 
+{
+0% {opacity:1.0; text-shadow:0 0 20px #00c6ff;}
+50% {opacity:0; text-shadow:none; }
+100% {opacity:1.0; text-shadow:0 0 20px #00c6ff; }	
+}
+
+
+@-moz-keyframes mymove 
+{
+0% {opacity:1.0; text-shadow:0 0 20px #00c6ff;}
+50% {opacity:0; text-shadow:none; }
+100% {opacity:1.0; text-shadow:0 0 20px #00c6ff; }	
+}
+
+</style>
+<script>
+$(document).ready(function(){
+	$(".menu_body").hide();
+	$(".menu_head:first-child").next(".menu_body").slideToggle(600); 
+	//toggle the componenet with class menu_body
+	$(".menu_head").click(function(){
+		$(this).next(".menu_body").slideToggle(600); 
+		var plusmin;
+		plusmin = $(this).children(".plusminus").text();
+
+		if( plusmin == '+')
+		$(this).children(".plusminus").text('-');
+		else
+		$(this).children(".plusminus").text('+');
+	});
+	$(".dropdown").click(function(){
+	$(".menu_container").hide();
+	
+	});
+});
+</script>
+<script type="text/javascript">
+$(document).ready(function() {
+// Create two variable with the names of the months and days in an array
+var monthNames = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ]; 
+var dayNames= ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
+
+// Create a newDate() object
+var newDate = new Date();
+// Extract the current date from Date object
+newDate.setDate(newDate.getDate());
+// Output the day, date, month and year    
+$('#Date').html(dayNames[newDate.getDay()] + " " + newDate.getDate() + ' ' + monthNames[newDate.getMonth()] + ' ' + newDate.getFullYear());
+
+setInterval( function() {
+	// Create a newDate() object and extract the seconds of the current time on the visitor's
+	var seconds = new Date().getSeconds();
+	// Add a leading zero to seconds value
+	$("#sec").html(( seconds < 10 ? "0" : "" ) + seconds);
+	},1000);
+	
+setInterval( function() {
+	// Create a newDate() object and extract the minutes of the current time on the visitor's
+	var minutes = new Date().getMinutes();
+	// Add a leading zero to the minutes value
+	$("#min").html(( minutes < 10 ? "0" : "" ) + minutes);
+    },1000);
+	
+setInterval( function() {
+	// Create a newDate() object and extract the hours of the current time on the visitor's
+	var hours = new Date().getHours();
+	// Add a leading zero to the hours value
+	$("#hours").html(( hours < 10 ? "0" : "" ) + hours);
+    }, 1000);
+	
+}); 
+</script>
+</head>
+<body>
+<div class="menu_container">
+		<p class="menu_head">Quote of the day..<span class="plusminus">-</span></p>
+			<div class="menu_body" style="display: none;">
+			<% if Quote.find_by_quotedate(Time.now.strftime("%y/%m/%d")).present? %>
+			<p><%= Quote.find_by_quotedate(Time.now.strftime("%y/%m/%d")).quote.capitalize.html_safe %></p>
+			<% else %>
+			<p><%= "A person who never made a mistake never tried anything new...<br/>--Albert Einstein".html_safe %></p>
+			<% end %>
+			</div>
+			<div class="clock-container">
+<div class="clock">
+<div id="Date">Thursday 25 July 2013</div>
+
+<ul id="clock-ul">
+	<li class="clock-li" id="hours">11</li>
+    <li class="clock-li" id="point">:</li>
+    <li class="clock-li" id="min">02</li>
+    <li class="clock-li" id="point">:</li>
+    <li class="clock-li" id="sec">32</li>
+</ul>
+
+</div>
+</div>
+		
+</div>
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <a style="font-family:Times New Roman" class="brand" href="/">RailsLover</a>
+      <ul class="nav nav-bars">
+		  <li class="active"><a href="/ideas"><i class="icon-home"></i>Ideas</a></li>
+		  <% if member_signed_in? %>
+		  <% if current_member.email == "kantaharikrishna@gmail.com" %>
+			<li class="active"><%= link_to memberslist_path, :method => :get do %>
+        <i class="icon-fire"></i>Members
+        <% end %></li>
+		  <% end %>
+		  <% end %>
+		  
+	  </ul>
+      <ul class="nav pull-right nav-bars">
+        
+        <% if member_signed_in? %>
+       <!-- <li class="active"><%= link_to(image_tag("user.png", :width => 13), new_memberimage_path, :method => :get) if !Memberimage.find_by_member_id(current_member.id).present?%></li> -->
+       <!-- <li class="active"><%=link_to image_tag(Memberimage.find_by_member_id(current_member.id).image_url, :width => 30), edit_memberimage_path(Memberimage.find_by_member_id(current_member.id)) if Memberimage.find_by_member_id(current_member.id).present? %></li> -->
+        <!-- <li class="active"><%= link_to "Profile", edit_registration_path(Member.find_by_id(current_member.id)) %></li> -->
+        
+        <li id="fat-menu" class="dropdown">
+			<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+			<%=image_tag("user.png", :width => 13, :class => "img-rounded")  if !Memberimage.find_by_member_id(current_member.id).present?%>
+            <%=image_tag(Memberimage.find_by_member_id(current_member.id).image_url, :width => 32, :class => "img-rounded") if Memberimage.find_by_member_id(current_member.id).present? %><b class="caret"></b>
+			</a>
+			<ul class="dropdown-menu">
+			<li><%= link_to "View profile", profile_path %></li>
+			<li><%= link_to "Edit profile", edit_registration_path(Member.find_by_id(current_member.id)) %></li>
+			<li><%= link_to("Edit profile photo", new_memberimage_path, :method => :get) if !Memberimage.find_by_member_id(current_member.id).present?%></li>
+			<li><%=link_to "Edit profile photo", edit_memberimage_path(Memberimage.find_by_member_id(current_member.id)) if Memberimage.find_by_member_id(current_member.id).present? %></li>
+			
+			</ul>
+		</li>
+        
+        
+        <li class="active"><%= link_to "Sign Out", destroy_member_session_path, :method => :delete %></li>
+        
+        <!-- <li class="active"><%= image_tag(Memberimage.find_by_member_id(current_member.id).image_url, :width => 50) if Memberimage.find_by_member_id(current_member.id).present? %></li> -->
+         
+        <!--<li class="active">You have visited this site <%= pluralize(current_member.sign_in_count, "time") %></li> -->
+ 
+        <!--<li class="active"><h4><%= "Welcome #{current_member.username.capitalize}, you have visited this site #{pluralize(current_member.sign_in_count, "time")}" %></h4></li> -->
+        <% else %>
+        <li class="active"><%= link_to "Sign In", new_member_session_path, :method => :get %></li>
+        <li class="active"><%= link_to "Sign up", new_member_registration_path, :method => :get %></li>
+        <% end %>
+        <li class="active"><%= link_to contact_path, :method => :get do %>
+        <i class="icon-pencil"></i>Contact
+        <% end %>
+        </li>
+        
+        <li id="fat-menu" class="dropdown">
+			<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+			<i class="icon-list"></i>Stuff <b class="caret"></b>
+			</a>
+			<ul class="dropdown-menu">
+			<li><%= link_to "Techno News", technonews_path %></li>
+			<li><%= link_to "Social News", socialnews_path %></li>
+			<li><%= link_to "Kushi photos", kushii_path %></li>
+			<li><a href="Yahtzee/Cocos2d-html5-v2.0/Yaht/index.html">Yahzee Game</a></li>
+			<li><a href="sudoku/cocos/cocos/MySudoku/index.html">Sudoku Game</a></li>
+			</ul>
+		</li>
+      </ul>
+    </div>
+  </div>
+  
+</div>
+
+<% if member_signed_in? %>
+<div style="position:absolute;right:30px;top:40px;color:olive;"><h5><%= "Welcome #{current_member.username.capitalize}, you have visited this site #{pluralize(current_member.sign_in_count, "time")}" %></h5></div>
+<% end %>
+<div class="container">
+  <%= yield %>
+</div>
+<footer>
+  <div class="container">
+    @Harikrishna 2013
+  </div>
+  <div id="bottom_right">
+	  <% @sum=0 %>
+	  
+	  <% Member.all.each do |m| %>
+	  <% @sum+=m.sign_in_count %>
+	  
+	  <% end %>
+	  <%= "Total number of signin based hits to this site: #{@sum}" %>
+  </div>
+ <!-- <%= debug(current_member) %> -->
+ <%= debug(params) if Rails.env.development? %>
+ <%= debug(@par1) if Rails.env.development? %>
+</footer>
+<!-- <%= render :partial => 'layouts/ga' if Rails.env.production? %> -->
+
+
+</body>
+</html>

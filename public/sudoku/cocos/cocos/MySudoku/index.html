@@ -1,0 +1,27 @@
+<html>
+	<head>
+		<link href="images/favicon.ico" rel="icon" type="image/x-icon" />
+		<link href='http://fonts.googleapis.com/css?family=Lobster+Two:400italic' rel='stylesheet' type='text/css' />
+		<title>Sudoku</title>
+	</head>
+	<body style="padding:0;font-family: 'Lobster Two', cursive; font-style:italic; color:#000; height: 50px;margin: 0 0 20px 0; padding:0 0 10px 0;">
+		<div style="width:600;margin:0 auto;text-align: center;font-size:30pt;">
+			Sudoku@Suraj
+		</div>
+		<div style="width:600;margin:0 auto;font-size:25pt;">
+			<div style="width: 35%;float:left">Timer: <span id='timer'></span></div>
+			<div style="width: 25%;float:left;">
+				<button id='button' onClick="window.location.reload()">
+					New Game
+				</button>
+			</div>
+			<div style="width: 40%;float:left">Best Time: <span id='best'></span></div>
+		</div>
+		<div style="width:620;margin:0 auto">
+		 	<canvas id="gameCanvas" width="620" height="700">
+		  		Your browser does not support the canvas tag
+		 	</canvas>
+		</div>
+	</body>
+</html>
+<script src="cocos2d.js"></script>

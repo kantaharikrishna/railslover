@@ -1,0 +1,30 @@
+﻿<% content_for :poll do %>
+<%= form_tag :controller => "ideas", :action => "poll" do %>
+<div style="border:2px solid;position: fixed; right: 0; bottom: 0; width: 250px; height: 86px;" class="polldiv" >
+<div style="background-color:yellow">
+Which OS you like most
+</div>
+<div style="background-color:olive">
+  <input class="gender" type="radio" name="vote" value="windows">Windows
+<br>
+<input class="gender" type="radio" name="vote" value="linux/ubuntu">Linux/Ubuntu
+<div id="button_poll" ><%= button_to 'Poll', {:class => 'button_poll' }, :controller => "ideas", :action => "poll"  %></div>
+</div>
+</div>
+<% end %>
+<script type="text/javascript">
+$(document).ready(function () {
+$(".gender").change(function () {
+
+    var val = $('.gender:checked').val();
+    alert(val);
+});
+});
+
+</script>
+<style>
+.button_poll {
+  width: 500px;
+}
+</style>
+<% end %>
