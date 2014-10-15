@@ -1,0 +1,127 @@
+Connecting to database specified by database.yml
+Started GET "/" for 127.0.0.1 at 2014-10-14 18:53:24 +0530
+Started GET "/ideas" for 127.0.0.1 at 2014-10-14 18:53:24 +0530
+Processing by IdeasController#index as HTML
+  Rendered ideas/_poll.html.erb (2.0ms)
+  Rendered ideas/index.html.erb within layouts/application (52.0ms)
+Compiled jquery.js  (18ms)  (pid 6536)
+Compiled jquery_ujs.js  (0ms)  (pid 6536)
+Compiled anythingslider.js  (0ms)  (pid 6536)
+Compiled bootstrap-transition.js  (0ms)  (pid 6536)
+Compiled bootstrap-affix.js  (0ms)  (pid 6536)
+Compiled bootstrap-alert.js  (1ms)  (pid 6536)
+Compiled bootstrap-button.js  (0ms)  (pid 6536)
+Compiled bootstrap-carousel.js  (0ms)  (pid 6536)
+Compiled bootstrap-collapse.js  (0ms)  (pid 6536)
+Compiled bootstrap-dropdown.js  (0ms)  (pid 6536)
+Compiled bootstrap-modal.js  (0ms)  (pid 6536)
+Compiled bootstrap-scrollspy.js  (0ms)  (pid 6536)
+Compiled bootstrap-tab.js  (0ms)  (pid 6536)
+Compiled bootstrap-tooltip.js  (0ms)  (pid 6536)
+Compiled bootstrap-popover.js  (0ms)  (pid 6536)
+Compiled bootstrap-typeahead.js  (1ms)  (pid 6536)
+Compiled bootstrap.js  (265ms)  (pid 6536)
+Compiled jquery.purr.js  (0ms)  (pid 6536)
+Compiled merged/kushi.js  (401ms)  (pid 6536)
+Compiled merged/socialnews.js  (3ms)  (pid 6536)
+Completed 500 Internal Server Error in 123241ms
+
+ActionView::Template::Error (䍞
+  (in C:/RailsInstaller/RailsLover/app/assets/javascripts/merged/socialnews.js)):
+    25:   <%= stylesheet_link_tag    "application", :media => "all" %>
+    26:   <%= javascript_include_tag "application" %>
+    27:   <%= javascript_include_tag "merged/kushi" %>
+    28:   <%= javascript_include_tag "merged/socialnews" %>
+    29:   
+    30:   <%= csrf_meta_tags %>
+    31:   <%= analytics_init if Rails.env.production? %>
+  app/views/layouts/application.html.erb:28:in `_app_views_layouts_application_html_erb___354117577_42791400'
+  app/controllers/ideas_controller.rb:10:in `index'
+
+
+Started GET "/ideas" for 127.0.0.1 at 2014-10-14 18:55:27 +0530
+Processing by IdeasController#index as HTML
+  Rendered ideas/_poll.html.erb (1.0ms)
+  Rendered ideas/index.html.erb within layouts/application (4.0ms)
+Completed 401 Unauthorized in 3813ms
+Connecting to database specified by database.yml
+Started GET "/" for 127.0.0.1 at 2014-10-14 18:55:56 +0530
+Started GET "/ideas" for 127.0.0.1 at 2014-10-14 18:55:56 +0530
+Processing by IdeasController#index as HTML
+  Rendered ideas/_poll.html.erb (2.0ms)
+  Rendered ideas/index.html.erb within layouts/application (56.0ms)
+  Rendered layouts/_ga.html.erb (1.0ms)
+Completed 200 OK in 81697ms (Views: 81605.7ms | ActiveRecord: 90.0ms)
+Started GET "/assets/merged/kushi-4f798b5761308acd7f4970683b4ec4f5.js" for 127.0.0.1 at 2014-10-14 18:57:18 +0530
+Served asset /merged/kushi-4f798b5761308acd7f4970683b4ec4f5.js - 200 OK (1ms)
+Started GET "/assets/merged/socialnews-4f798b5761308acd7f4970683b4ec4f5.js" for 127.0.0.1 at 2014-10-14 18:57:18 +0530
+Served asset /merged/socialnews-4f798b5761308acd7f4970683b4ec4f5.js - 200 OK (0ms)
+Started GET "/kushii" for 127.0.0.1 at 2014-10-14 18:58:03 +0530
+Processing by StaticController#kushi as HTML
+  Rendered static/kushi.html.erb within layouts/application (1.0ms)
+  Rendered layouts/_ga.html.erb (0.0ms)
+Completed 200 OK in 94ms (Views: 43.0ms | ActiveRecord: 48.0ms)
+Started GET "/socialnews" for 127.0.0.1 at 2014-10-14 18:58:13 +0530
+Processing by StaticController#social_news as HTML
+  Rendered static/social_news.html.erb within layouts/application (1.0ms)
+  Rendered layouts/_ga.html.erb (0.0ms)
+Completed 200 OK in 11ms (Views: 10.0ms | ActiveRecord: 1.0ms)
+Connecting to database specified by database.yml
+Started GET "/" for 127.0.0.1 at 2014-10-15 10:42:14 +0530
+Started GET "/ideas" for 127.0.0.1 at 2014-10-15 10:42:14 +0530
+Processing by IdeasController#index as HTML
+  Rendered ideas/_poll.html.erb (2.0ms)
+  Rendered ideas/index.html.erb within layouts/application (158.0ms)
+Compiled jquery.js  (3ms)  (pid 4060)
+Compiled jquery_ujs.js  (0ms)  (pid 4060)
+Compiled anythingslider.js  (1ms)  (pid 4060)
+Compiled bootstrap-transition.js  (0ms)  (pid 4060)
+Compiled bootstrap-affix.js  (0ms)  (pid 4060)
+Compiled bootstrap-alert.js  (0ms)  (pid 4060)
+Compiled bootstrap-button.js  (0ms)  (pid 4060)
+Compiled bootstrap-carousel.js  (1ms)  (pid 4060)
+Compiled bootstrap-collapse.js  (0ms)  (pid 4060)
+Compiled bootstrap-dropdown.js  (0ms)  (pid 4060)
+Compiled bootstrap-modal.js  (0ms)  (pid 4060)
+Compiled bootstrap-scrollspy.js  (0ms)  (pid 4060)
+Compiled bootstrap-tab.js  (0ms)  (pid 4060)
+Compiled bootstrap-tooltip.js  (1ms)  (pid 4060)
+Compiled bootstrap-popover.js  (0ms)  (pid 4060)
+Compiled bootstrap-typeahead.js  (1ms)  (pid 4060)
+Compiled bootstrap.js  (806ms)  (pid 4060)
+Compiled jquery.purr.js  (0ms)  (pid 4060)
+Compiled merged/kushi.js  (1239ms)  (pid 4060)
+Compiled merged/socialnews.js  (3ms)  (pid 4060)
+  Rendered layouts/_ga.html.erb (0.0ms)
+Completed 200 OK in 165995ms (Views: 165794.5ms | ActiveRecord: 200.0ms)
+Connecting to database specified by database.yml
+Started GET "/ideas" for 127.0.0.1 at 2014-10-15 10:47:22 +0530
+Processing by IdeasController#index as HTML
+  Rendered ideas/_poll.html.erb (2.0ms)
+  Rendered ideas/index.html.erb within layouts/application (52.0ms)
+  Rendered layouts/_ga.html.erb (1.0ms)
+Completed 200 OK in 183ms (Views: 139.0ms | ActiveRecord: 43.0ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Started GET "/" for 127.0.0.1 at 2014-10-15 12:07:22 +0530
+Started GET "/ideas" for 127.0.0.1 at 2014-10-15 12:07:23 +0530
+Processing by IdeasController#index as HTML
+  Rendered ideas/_poll.html.erb (2.0ms)
+  Rendered ideas/index.html.erb within layouts/application (78.0ms)
+Compiled anythingslider.css  (0ms)  (pid 6552)
+Compiled comments.css  (42ms)  (pid 6552)
+Compiled custom.css  (294ms)  (pid 6552)
+Compiled custom1.css  (1422ms)  (pid 6552)
+Compiled custom2.css  (47ms)  (pid 6552)
+Compiled home.css  (4ms)  (pid 6552)
+Compiled ideas.css  (4ms)  (pid 6552)
+Compiled kushis.css  (5ms)  (pid 6552)
+Compiled memberimages.css  (15ms)  (pid 6552)
+Compiled quotes.css  (5ms)  (pid 6552)
+Compiled registration.css  (7ms)  (pid 6552)
+Compiled scaffolds.css  (16ms)  (pid 6552)
+Compiled static.css  (6ms)  (pid 6552)
+Compiled application.css  (2390ms)  (pid 6552)
+Compiled angular.min.js  (2ms)  (pid 6552)
+Compiled application.js  (503ms)  (pid 6552)
+*********
