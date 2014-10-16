@@ -15,7 +15,7 @@ development:
   database: railsgirls1_development
   pool: 5
   username: root
-  password: root123
+  password: 
   host: 127.0.0.1
 
 # Warning: The database defined as "test" will be erased and
@@ -28,7 +28,7 @@ test:
   database: railsgirls1_test
   pool: 5
   username: root
-  password: root123
+  password: 
   host: 127.0.0.1
 
 production:
@@ -44,6 +44,6 @@ production:
   database: railsgirls1_production
   pool: 5
   username: root
-  password: root123
+  password: 
   host: 127.0.0.1
   
